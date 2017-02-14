@@ -9,7 +9,11 @@
     $app->register(new Silex\Provider\TwigServiceProvider(), ['twig.path' => __DIR__.'/../views']);
 
     $app->get('/', function() use ($app) {
+      $coin = new Coin;
+      echo $coin->find_coins(78);
         return $app['twig']->render('root.html.twig');
     });
+
+    return $app;
 
 ?>
